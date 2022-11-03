@@ -7,7 +7,18 @@ package dmacc.beans;
 
 import javax.persistence.Embeddable;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Instrument {
 	private String type;
 	private String brand;
@@ -15,9 +26,6 @@ public class Instrument {
 	private int yearMade;
 	
 	//Constructors
-	public Instrument() {
-		super();
-	}
 	
 	public Instrument(String type, String brand, int yearMade) {
 		super();
@@ -25,52 +33,5 @@ public class Instrument {
 		this.brand = brand;
 		this.yearMade = yearMade;
 	}
-	
-	public Instrument(String type, String brand, String model, int yearMade) {
-		super();
-		this.type = type;
-		this.brand = brand;
-		this.model = model;
-		this.yearMade = yearMade;
-	}
-	
-	//Getters and Setters
-	public String getType() {
-		return type;
-	}
-	
-	public void setType(String type) {
-		this.type = type;
-	}
-	
-	public String getBrand() {
-		return brand;
-	}
-	
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-	
-	public String getModel() {
-		return model;
-	}
-	
-	public void setModel(String model) {
-		this.model = model;
-	}
-	
-	public int getYearMade() {
-		return yearMade;
-	}
-	
-	public void setYearMade(int yearMade) {
-		this.yearMade = yearMade;
-	}
-
-	@Override
-	public String toString() {
-		return "Instrument [type=" + type + ", brand=" + brand + ", model=" + model + ", yearMade=" + yearMade + "]";
-	}
-	
 	
 }

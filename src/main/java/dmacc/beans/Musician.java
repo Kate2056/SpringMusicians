@@ -10,7 +10,21 @@ import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Musician {
 	@Id
 	@GeneratedValue
@@ -22,10 +36,6 @@ public class Musician {
 	private Instrument instrument;
 	
 	//Constructors
-	public Musician() {
-		super();
-	}
-	
 	public Musician(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
@@ -39,51 +49,10 @@ public class Musician {
 		this.age = age;
 	}
 	
-	public Musician(long id, String firstName, String lastName, int age) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-	}
-	
-	//Getters and Setters
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public Instrument getInstrument() {
-		return instrument;
-	}
-	public void setInstrument(Instrument instrument) {
-		this.instrument = instrument;
-	}
 
-	@Override
-	public String toString() {
-		return "Musician [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-				+ ", instrument=" + instrument + "]";
-	}
+	
+
+
 	
 
 	
