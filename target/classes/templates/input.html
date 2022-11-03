@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>New Musician</title>
+<style>
+body{
+	background-color:#cad9ce;
+}
+h1{
+	color: #1a2e1f;
+	display:flex;
+	justify-content:center;
+}
+#link{
+	margin:20px;
+	display:flex;
+	justify-content:center;
+}
+#formDiv{
+	display:flex;
+	justify-content:center;
+	border:solid;
+	border-color:#d9e3d8;
+	background-color:#e0e8df;
+	padding:10px, 10px, 10px, 10px;
+	margin:10px, 10px, 10px, 10px;
+}
+#button{
+	display:flex;
+	justify-content:center;
+	margin:20px auto;
+	background-color:#c1ccc0;
+	border-color:#99918d;
+}
+input{
+	background-color:#f2faf4;
+	border-color:#5c8266;
+	margin:10px;
+}
+</style>
+</head>
+<body>
+<h1>Create A New Musician Profile</h1>
+<div id="formDiv">
+<form th:object="${newMusician}" th:action="@{/update/{id}(id=${newMusician.id})}" method=POST>
+	First Name:          <input placeholder="First Name" name="firstName" size="20" th:field="*{firstName}"> <br>
+	Last Name:           <input placeholder="Last Name" name="lastName" size="20" th:field="*{lastName}"><br>
+	Age:                 <input name="phone" size="20" th:field="*{age}"><br />
+	Instrument Type:     <input placeholder="Type" name="instrument.type" size="20" th:field="*{instrument.type}"><br>
+	Instrument Brand:    <input placeholder="Brand" name="instrument.brand" size="20" th:field="*{instrument.brand}"><br>
+	Instrument Model:    <input placeholder="Model" name="instrument.model" size="20" th:field="*{instrument.model}"><br>
+	Instrument Year Made:<input  name="instrument.yearMade" size="20" th:field="*{instrument.yearMade}"><br>
+<input id="button" name="submit" type="submit" value="Submit"/>
+</form>
+</div>
+<a href="viewAll" id="link">View all Musicians</a>
+</body>
+</html>
