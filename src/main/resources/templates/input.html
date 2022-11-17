@@ -39,14 +39,50 @@ input{
 	margin:10px;
 }
 </style>
+<script type="text/javascript">
+
+	function validateInput(){
+		if(document.form.firstName.value == ""){
+			alert("Please enter Musician's first name");
+			document.form.firstName.focus();
+			return false;
+		}
+		if(document.form.lastName.value == ""){
+			alert("Please enter Musician's last name");
+			document.form.lastName.focus();
+			return false;
+		}
+		if(document.form.age.value == 0){
+			alert("Please enter Musician's age");
+			document.form.age.focus();
+			return false;
+		}
+		if(document.form.instrument.type.value == ""){
+			alert("Please enter Musician's type of instrument");
+			document.form.instrument.type.focus();
+			return false;
+		}
+		if(document.form.instrument.brand.value == ""){
+			alert("Please enter Musician's brand of instrument");
+			document.form.instrument.brand.focus();
+			return false;
+		}
+		return true;
+	}
+	
+	 
+
+
+
+</script>
 </head>
 <body>
 <h1>Create A New Musician Profile</h1>
 <div id="formDiv">
-<form th:object="${newMusician}" th:action="@{/update/{id}(id=${newMusician.id})}" method=POST>
+<form name="form"  th:object="${newMusician}" th:action="@{/update/{id}(id=${newMusician.id})}" onsubmit="return validateInput()" method=POST>
 	First Name:          <input placeholder="First Name" name="firstName" size="20" th:field="*{firstName}"> <br>
 	Last Name:           <input placeholder="Last Name" name="lastName" size="20" th:field="*{lastName}"><br>
-	Age:                 <input name="phone" size="20" th:field="*{age}"><br />
+	Age:                 <input name="age" size="20" th:field="*{age}"><br />
 	Instrument Type:     <input placeholder="Type" name="instrument.type" size="20" th:field="*{instrument.type}"><br>
 	Instrument Brand:    <input placeholder="Brand" name="instrument.brand" size="20" th:field="*{instrument.brand}"><br>
 	Instrument Model:    <input placeholder="Model" name="instrument.model" size="20" th:field="*{instrument.model}"><br>
